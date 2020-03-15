@@ -56,7 +56,8 @@ def fun_call_box(linecp):
         add_string(str(date_conditions))
     if linecp.find('days_of_week') == 0:
         days_of_week=linecp.split(':')[1].strip()
-        add_string(str(days_of_week))
+        final_days_of_week=days_of_week.replace(',','|')
+        add_string(str(final_days_of_week))
     if linecp.find('exclude_calendar') == 0:
         exclude_calendar=linecp.split(':')[1].strip()
         add_string(str(exclude_calendar))
