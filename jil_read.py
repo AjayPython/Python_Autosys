@@ -70,8 +70,11 @@ def fun_call_box(linecp):
     if linecp.find('term_run_time') == 0:
         term_run_time=linecp.split(':')[1].strip()
         add_string(str(term_run_time))        
-        
-    print('This is :' + box_string)
+    
+    filen=os.getcwd()+os.sep+'file1.csv'    
+    f=open(filen,'w')
+    f.write(box_string)
+    f.close()
     
 
 def fun_call_job():
