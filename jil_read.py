@@ -10,9 +10,10 @@ import sys
 import os
 import re
 
-home_dir='/home/ajay/python_examples/'
-p=os.chdir('/home/ajay/python_examples/')
+home_dir='D:\Autosys\Python_Autosys\Autosys_Jil\\'
+p=os.chdir('D:\Autosys\Python_Autosys\Autosys_Jil\\')
 box_string=""
+job_count=0
 
 def read_jil(filename):
     print(filename)
@@ -21,6 +22,7 @@ def read_jil(filename):
     read_file=open(filename,'r')
     for line in read_file.readlines():
         if line.find('job_type') >= 1:
+            job_count=job_count+1
             job_type=(line.split(':')[2]).rstrip('\n').strip()
             if job_type == 'b':
                 call_box=1
@@ -39,9 +41,9 @@ def fun_call_box(linecp):
     box_name=""
     owner=""
     permission=""
-    print(str(linecp.find('insert_job')) + linecp)
-    print(str(linecp.find('owner')) + linecp)
-    print(str(linecp.find('permission')) + linecp)
+    # print(str(linecp.find('insert_job')) + linecp)
+    # print(str(linecp.find('owner')) + linecp)
+    # print(str(linecp.find('permission')) + linecp)
     if linecp.find('insert_job') == 0:
         box_name=linecp.split(':')[1].split(' ')[1]
         add_string(box_name)
@@ -69,8 +71,10 @@ def fun_call_box(linecp):
         add_string(str(description))
     if linecp.find('term_run_time') == 0:
         term_run_time=linecp.split(':')[1].strip()
-        add_string(str(term_run_time))        
-        
+        add_string(str(term_run_time))
+
+        print("box_name,owner,permission,date_conditions,days_of_week,exclude_calendar,start_times,description,
+
     print('This is :' + box_string)
     
 
