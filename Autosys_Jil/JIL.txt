@@ -1,0 +1,29 @@
+/* ------------- JOB1 ------------------ */
+
+insert_job: JOB1    job_type:  b
+owner:     cm@pelonmuck
+permission: gx,ge,wx,we,mx,me
+date_conditions: 1
+days_of_week: mo,tu,we,th,fr,su
+start_time: "18:30"
+box_success: s(SOME_JOB1) and s(SOME_JOB2) and s(SOME_JOB3)
+box_failure: (f(SOME_JOB1) or f(SOME_JOB2)) & f(SOME_JOB3)
+description: "pull files"
+max_run_alarm: 15
+alarm_if_fail: 1
+timezone: US/Eastern
+
+
+/* ------------- JOB2 ------------------ */
+
+insert_job: JOB2    job_type:  c
+box_name: SOME_BOX_NAME
+command: /usr/bin/run /usr/cache/START_JOB
+machine: machine@conti.com
+owner:     cm@pelonmuck        
+permission: gx,ge,wx,we,mx,me
+days_of_week: sa,su
+description: "pull all files"
+max_run_alarm: 15
+alarm_if_fail: 1
+timezone: GMT
